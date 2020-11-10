@@ -77,7 +77,7 @@ def checkAnswer():
 
 def resetgameBtn():
 
-    global qCount ,usedQuestions, actualAnswer, usersAnswer, points
+    global qCount ,usedQuestions, usersAnswer, points, actualAnswer
 
     qCount = 0
     usedQuestions = []
@@ -135,8 +135,12 @@ def gui():
     text3 = ("Comic Sans MS", 35)
     text2 = ("Comic Sans MS", 20)
     text = ("Comic Sans MS", 18)
-    win.configure(bg="#326fa8")  # Configuração da Janela
+    #win.configure(bg="#326fa8")  # Configuração da Janela
     win.geometry("900x600")  # Dimensões da Janela
+
+    # Imagem de Fundo
+    bgImage = PhotoImage(file = r"SonicBg.gif")
+    Label(win, image = bgImage).place(relwidth = 1, relheight = 0.65)
 
     # Quadro do Título
     titleFrame = Frame(win, bg="#000000")
@@ -190,6 +194,17 @@ def gui():
     nextBtn = Button(win,
                     image=btnImg,
                      command = checkAnswer)
+
+    # Qr Code
+    btnQrimg = PhotoImage(file = r"qrcode12.gif")
+
+    btnQr = Button(win,
+                   image = btnQrimg)
+
+    btnQr.place(relx=0.35,
+                rely=0.19,
+                relwidth=0.30,
+                relheight=0.35)
 
     # Botão Vermelho
     btnRed = PhotoImage(file=r"vermelho.gif")
@@ -254,6 +269,7 @@ def gui():
     # Função de destruir btns e Rodar Questões
     def hideStart():
         btnStart.destroy()
+        btnQr.destroy()
         displayQuestion()
 
         nextBtn.place(relx=0.91,
@@ -263,7 +279,7 @@ def gui():
 
     # Botão Começar
     btnStart = Button(win,
-                      text = "Clique aqui para Começar",
+                      text = "Escaneie o QR Code acima para abrir o livro\n\nClique aqui para Começar",
                       compound = CENTER,
                       font = text1,
                       bg = bgColour,
