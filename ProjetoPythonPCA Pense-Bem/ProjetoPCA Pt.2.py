@@ -59,10 +59,10 @@ def displayQuestion():
     else:
         gameOver.config(text = "Game Over\n\nPontuação Final: %s" % points)
         gameOver.place(relwidth = 1, relheight = 1, relx = 0, rely = 0)
-        resetGame.place(relx = 0.32,
-                        rely = 0.85,
-                        relwidth = 0.35,
-                        relheight = 0.1)
+        #resetGame.place(relx = 0.32,
+                        #rely = 0.85,
+                        #relwidth = 0.35,
+                        #relheight = 0.1)
 
 def checkAnswer():
     # Resposta Selecionada e Aumento no número de pontos
@@ -296,11 +296,11 @@ def gui():
                      bg = "#000000",
                      font = ("Comic Sans MS",50))
 
-    resetGame = Button(win,
-                       text = "Recomeçar",
-                       compound = CENTER,
-                       command = resetgameBtn,
-                       font = ("Comic Sans MS",20))
+    #resetGame = Button(win,
+                       #text = "Recomeçar",
+                       #compound = CENTER,
+                       #command = resetgameBtn,
+                       #font = ("Comic Sans MS",20))
 
     win.mainloop()
 
